@@ -1,0 +1,89 @@
+include ../textarea/textarea
+include ../input/input
+
+mixin popup(type, id = type)
+  .popup.js-popup.js-close-popup(data-popup=id)
+    .popup__backdrop
+    .popup__container
+      .popup__wrapper
+        if type === 'item'
+          .popup__window.popup__item
+            .popup__item-slider.js-popup-slider
+              .popup__item-slider-slide
+                img.popup__item-slider-img(src="img/inhtml/popup/items/1.jpg", alt="")
+              .popup__item-slider-slide
+                img.popup__item-slider-img(src="img/inhtml/popup/items/1.jpg", alt="")
+              .popup__item-slider-slide
+                img.popup__item-slider-img(src="img/inhtml/popup/items/1.jpg", alt="")
+              .popup__item-slider-slide
+                img.popup__item-slider-img(src="img/inhtml/popup/items/1.jpg", alt="")
+            .popup__item-info
+              +heading('Технические характеристики', 'popup__item-heading')
+              .popup__item-table
+                .popup__item-table-row
+                  p.popup__item-table-cell Тип
+                  p.popup__item-table-cell Переливной
+                .popup__item-table-row
+                  p.popup__item-table-cell Вместимость
+                  p.popup__item-table-cell 1 куб.м
+                .popup__item-table-row
+                  p.popup__item-table-cell Материалы
+                  p.popup__item-table-cell Полиэтилен
+                .popup__item-table-row
+                  p.popup__item-table-cell Мощность
+                  p.popup__item-table-cell 300 л/сутки
+                .popup__item-table-row
+                  p.popup__item-table-cell Подсоединение
+                  p.popup__item-table-cell Выход. отверстие: 110 мм<br>Вход. отверстие: 110 мм
+                .popup__item-table-row.popup__item-table-row--bottom
+                  p.popup__item-table-cell Глубина установки входной/выходной трубы
+                  p.popup__item-table-cell 770/820 мм
+                .popup__item-table-row.popup__item-table-row--bottom
+                  p.popup__item-table-cell Количество пользователей
+                  p.popup__item-table-cell 1−3 человека
+              +button-primary('button', 'Добавить в корзину', 'popup__item-cart js-cart-add')
+              +button-cart('Добавлено в корзину', 'popup__item-cart')
+              +button-secondary('link', 'Смотреть подробнее', 'popup__item-more', {link: 'item.html'})
+        else if type === 'feedback'
+          .popup__window.popup__feedback
+            .popup__header
+              .popup__header-close.js-close-popup
+              p.popup__header-heading Оставьте свой отзыв
+              p.popup__header-desc Заполните данные и поставьте оценку для публикации
+            form.popup__feedback-content(action="")
+              .popup__feedback-rating
+                p.popup__feedback-rating-heading Ваша оценка:
+                .popup__feedback-rating-container(data-rating="0")
+                  .popup__feedback-rating-star.popup__feedback-rating-star--empty.js-feedback-star(data-rating="1")
+                  .popup__feedback-rating-star.popup__feedback-rating-star--empty.js-feedback-star(data-rating="2")
+                  .popup__feedback-rating-star.popup__feedback-rating-star--empty.js-feedback-star(data-rating="3")
+                  .popup__feedback-rating-star.popup__feedback-rating-star--empty.js-feedback-star(data-rating="4")
+                  .popup__feedback-rating-star.popup__feedback-rating-star--empty.js-feedback-star(data-rating="5")
+                p.popup__feedback-rating-eval.js-feedback-eval
+                  |-&nbsp;
+                  span хорошо
+              +input('text', 'name', 'Введите ваше имя', 'popup__feedback-input', true)
+              +textarea('feedback', 'Ваш комментарий', 'popup__feedback-textarea', true)
+              +button-primary('submit', 'Опубликовать комментарий', 'js-feedback-send')
+        else if type === 'query'
+          .popup__window.popup__query
+            .popup__header.popup__header--centered
+              .popup__header-close.js-close-popup
+              p.popup__header-heading Заполните данные
+              p.popup__header-desc И наш менеджер свяжется с вами для завершения оформления заявки
+            form.popup__query-form(action="")
+              p.popup__query-resume У вас&nbsp;
+                span.js-query-amount(data-set='["товар", "товара", "товаров"]')
+                |&nbsp;на сумму&nbsp;
+                span.js-query-sum
+                |&nbsp;&#8381;
+              +input('text', 'name', 'Введите ваше имя', 'popup__query-input', true)
+              +input('tel', 'phone', 'Введите телефон', 'popup__query-input', true)
+              +button-primary('submit', 'Отправить заявку', 'popup__query-btn js-query-send')
+              p.popup__query-disclaimer Нажимая на кнопку «Отправить заявку», я даю согласие на обработку Персональных данных и&nbsp;соглашаюсь c Политикой конфиденциальности
+        else if type === 'success'
+          .popup__window.popup__success
+            .popup__success-close.js-close-popup
+            .popup__success-icon
+            p.popup__success-heading Спасибо за заказ!
+            p.popup__success-text Наш менеджер свяжется с вами через пару минут.

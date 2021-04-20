@@ -1,0 +1,186 @@
+.popup
+  z-index: 999999
+  position: fixed
+  top: 0
+  left: 0
+  display: none
+  width: 100%
+  height: 100%
+  cursor: pointer
+  &__container
+    position: relative
+    width: 100%
+    height: 100%
+    padding: 50px 0
+    overflow: scroll
+  &__backdrop
+    z-index: 1
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $grey
+  &__wrapper
+    z-index: 2
+    position: relative
+    min-height: 100%
+    width: 100%
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: center
+  &__window
+    position: relative
+    background-color: #fff
+    border-radius: 5px
+    cursor: auto
+  &__item
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: flex-start
+    width: 970px
+    padding: 50px 30px 50px
+    &-slider
+      position: relative
+      overflow: hidden
+      width: 520px
+      border-radius: 5px
+      .slick-slide
+        outline: 0
+      &-slide
+        display: block
+        width: 520px
+        height: 520px
+      &-arrow
+        @include slider-arrow
+        &--prev
+          @include slider-arrow-prev
+        &--next
+          @include slider-arrow-next
+      &-dots
+        @include slider-dots
+    &-info
+      width: 305px
+    &-heading
+      margin-bottom: 40px
+    &-table
+      @include table
+      &-row
+        @include table-row
+        &--bottom
+          @include table-row-bottom
+      &-cell
+        @include table-cell
+    &-cart
+      width: 230px
+      margin-bottom: 20px
+    &-more
+      width: 230px
+  &__header
+    position: relative
+    background-color: $blue
+    padding: 40px 70px
+    color: #fff
+    &--centered
+      text-align: center
+    &-heading
+      margin-bottom: 6px
+      text-transform: uppercase
+      line-height: 30px
+      font:
+        size: 20px
+        weight: 700
+    &-close
+      position: absolute
+      top: 15px
+      right: 15px
+      width: 22px
+      height: 22px
+      cursor: pointer
+      background:
+        image: url('data:image/svg+xml,%3Csvg%20width%3D%2222%22%20height%3D%2223%22%20viewBox%3D%220%200%2022%2023%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%2216.9951%22%20y%3D%226.99854%22%20width%3D%2215%22%20height%3D%222%22%20transform%3D%22rotate%28135%2016.9951%206.99854%29%22%20fill%3D%22white%22%2F%3E%0A%3Crect%20width%3D%2215%22%20height%3D%222%22%20transform%3D%22matrix%280.707107%200.707107%200.707107%20-0.707107%204.97461%206.99902%29%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+        size: contain
+        position: center
+        repeat: no-repeat
+  &__feedback
+    overflow: hidden
+    width: 570px
+    border-radius: 5px
+    &-content
+      padding: 50px 70px
+    &-rating
+      display: flex
+      flex-flow: row nowrap
+      justify-content: flex-start
+      align-items: center
+      margin-bottom: 25px
+      color: $grey
+      &-heading
+        margin-right: 15px
+        line-height: 20px
+      &-container
+        @include item-rating
+      &-star
+        @include item-star
+        width: 20px
+        height: 20px
+        margin-top: -3px
+        cursor: pointer
+        &--full
+          @include item-star-full
+        &--empty
+          @include item-star-empty
+      &-eval
+        display: none
+        margin-left: 5px
+    &-textarea
+      margin-bottom: 30px
+    &-input
+      margin-bottom: 10px
+  &__query
+    overflow: hidden
+    width: 430px
+    border-radius: 5px
+    &-form
+      padding: 50px 65px
+      text-align: center
+    &-resume
+      margin-bottom: 25px
+      font-weight: 500
+    &-input
+      width: 100% !important
+      margin-bottom: 10px
+      text-align: center
+    &-btn
+      max-width: 100%
+      margin-top: 20px
+      margin-bottom: 30px
+    &-disclaimer
+      color: $grey
+      font-size: 12px
+  &__success
+    width: 490px
+    padding: 50px 100px 60px
+    &-icon
+      width: 63px
+      height: 63px
+      margin: 0 auto 30px
+      background:
+        image: url('data:image/svg+xml,%3Csvg%20width%3D%2263%22%20height%3D%2263%22%20viewBox%3D%220%200%2063%2063%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Ccircle%20cx%3D%2231.5%22%20cy%3D%2231.5%22%20r%3D%2231.5%22%20fill%3D%22%2368D136%22%2F%3E%0A%3Cpath%20d%3D%22M18%2030.5L28%2040.5L45.5%2023%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+        size: contain
+        position: center
+        position: center
+    &-heading
+      margin-bottom: 20px
+      text-align: center
+      text-transform: uppercase
+      line-height: 30px
+      font:
+        size: 20px
+        weight: 700
+    &-text
+      color: $grey
+      text-align: center
+      line-height: 20px

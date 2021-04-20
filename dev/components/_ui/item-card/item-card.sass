@@ -1,0 +1,77 @@
+.item-card
+  overflow: hidden
+  position: relative
+  width: 270px
+  height: 420px
+  border-radius: 5px
+  background-color: #fff
+  &:hover
+    .item-card__btn,
+    .item-card__backdrop
+      opacity: 1
+  &__label
+    z-index: 1
+    position: absolute
+    top: 30px
+    left: 30px
+    @include item-label
+  &__btn
+    z-index: 2
+    opacity: 0
+    position: absolute
+    top: 105px
+    left: calc(50% - 107px)
+    width: 215px
+    transition: all .3s ease
+  &__backdrop
+    z-index: 1
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+    width: 270px
+    height: 260px
+    background-color: rgba(0, 0, 0, .1)
+    transition: opacity .3s ease
+  &__image
+    width: 270px
+    height: 260px
+  &__info
+    position: relative
+    height: 160px
+    padding: 20px 30px 50px
+  &__desc
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    color: #a3a3a3
+    line-height: 20px
+    font-size: 12px
+  &__name
+    margin-bottom: 2px
+    @include item-name
+  &__rating
+    @include item-rating
+  &__star
+    @include item-star
+    &--full
+      @include item-star-full
+    &--empty
+      @include item-star-empty
+  &__feedbacks
+    @include item-feedbacks
+  &__actions
+    position: absolute
+    bottom: 25px
+    left: 30px
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    width: calc(100% - 60px)
+  &__price
+    line-height: 20px
+    font-size: 13px
+  &__add
+    @include item-add

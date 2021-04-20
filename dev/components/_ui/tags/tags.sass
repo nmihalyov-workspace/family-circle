@@ -1,0 +1,15 @@
+.tags
+  @include tag-container
+  margin-top: -15px
+  margin-bottom: 40px
+  &__item
+    @include tag-item
+    cursor: pointer
+    &:hover
+      background-color: $light-blue-2
+    &:active
+      background-color: darken($light-blue-2, 5)
+      border-color: darken($light-blue-2, 5)
+      transition: none
+    &--selected
+      @include tag-item-selected
